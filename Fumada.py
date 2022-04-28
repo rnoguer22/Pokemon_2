@@ -8,4 +8,4 @@ for i in eliminar:
 
 dt["Type2"] = "Water"
 
-print (dt)
+dt.to_csv("Nuevo Dataset.csv")
