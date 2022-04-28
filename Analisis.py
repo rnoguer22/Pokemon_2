@@ -35,7 +35,7 @@ class Media(Grafico):
         suma_xini = self.dataset["XiNi"].sum()
         suma_ni = self.dataset[self.col2].sum()
 
-        return suma_xini/suma_ni
+        return round(suma_xini/suma_ni, 2)
 
 class Std(Media):
     #Constructor
@@ -59,14 +59,10 @@ class Std(Media):
         suma_ni = self.dataset[self.col2].sum()
         varianza = suma_columna/suma_ni
 
-        return sqrt(varianza)
+        return round(sqrt(varianza), 2)
 
 
 if __name__ == "__main__":
-
-    #Hacemos el grafico de barras comparando ataque y defensa
-    grafico = Grafico("Pokemon.csv","Attack","Defense")
-    #grafico.grafico_barras("Grafico Ataque-Defensa")
 
     #Calculamos la media de ataque y defensa
     media = Media("Pokemon.csv","Attack","Defense")
@@ -75,3 +71,7 @@ if __name__ == "__main__":
     #Calculamos la desviacion estandar de ataque y defensa
     std = Std("Pokemon.csv","Attack","Defense")
     print ("La desviacion estandar es: {}".format(std.calcular_std()))
+
+    #Hacemos el grafico de barras comparando ataque y defensa
+    grafico = Grafico("Pokemon.csv","Attack","Defense")
+    grafico.grafico_barras("Grafico Ataque-Defensa")
