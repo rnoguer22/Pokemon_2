@@ -89,6 +89,8 @@ class Porcentaje(Media):
 
 if __name__ == "__main__":
 
+    print ("ANALISIS DE LOS DATOS")
+
     #Calculamos la media de ataque y defensa
     media = Media("Pokemon.csv","Attack","Defense")
     print ("La media es: {}".format(media.calcular_media()))
@@ -102,6 +104,7 @@ if __name__ == "__main__":
     #Bucle para calcular los 3 porcentajes
     for i in range(1,4):
         print ("{}º porcentaje: {}%".format(i, porcentaje.calcular_porcentaje(i)))
+    "Los porcentajes no salen 68% el primero, 95% el segundo, y 99.7% el ultimo, ya que no sigue una distribucion normal"
 
     #Hacemos el grafico de barras comparando ataque y defensa
     grafico = Grafico("Pokemon.csv","Attack","Defense")
