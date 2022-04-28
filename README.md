@@ -1,6 +1,6 @@
 # Pokemon_2
 
-[Pinche aqui para acceder al link de este repositorio]()
+[Pinche aqui para acceder al link de este repositorio](https://github.com/rnoguer22/Pokemon_2.git)
 
 *Para resolver esta tarea, nos hemos basado en la entrega del dia anterior en la que teniamos que analizar un pequeño dataset, es decir, cacular la media, desviacion tipica y una serie de porcentajes. Hemos analizado el nuevo dataset con el codigo de la tarea anterior*
 
