@@ -166,10 +166,10 @@ def main():
 
     # Get configuration for Game User 1.
   
-    list_of_pokemon1= get_data_from_user("coach_1_pokemons.csv")
+    list_of_pokemon1= get_data_from_user("Nuevo Dataset.csv")
 
     # Get configuration for Game User 2.
-    list_of_pokemon2= get_data_from_user("coach_2_pokemons.csv")
+    list_of_pokemon2= get_data_from_user("Nuevo Dataset.csv")
 
     for pokemon in list_of_pokemon1:
       print(pokemon)
