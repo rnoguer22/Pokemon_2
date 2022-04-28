@@ -61,6 +61,31 @@ class Std(Media):
 
         return round(sqrt(varianza), 2)
 
+class Porcentaje(Media):
+    #Constructor
+    def __init__(self, dataset, col1, col2):
+        #Heredamos el constructor de la clase Media
+        super().__init__(dataset, col1, col2)
+        self.media = Media(dataset, col1, col2)
+        self.desviacion = Std(dataset, col1, col2)
+
+    def calcular_porcentaje(self, num):
+        self.dataset = pd.read_csv("Pokemon.csv")
+        lim_inf = self.media.calcular_media() - num*self.desviacion.calcular_std()
+        lim_sup = self.media.calcular_media() + num*self.desviacion.calcular_std()
+        r = []
+        s = []
+        indice = len(self.dataset) - 1
+        for i in range (len(self.dataset)):
+            if self.dataset[self.col1][indice-i] >= lim_inf and self.dataset[self.col1][indice-i] <= lim_sup:
+                r.append(self.dataset[self.col1][i])
+                s.append(self.dataset[self.col2][i])
+            else:
+                pass
+        r.sort()
+
+        #Hallamos el porcentaje
+        return (round(sum(s)/self.dataset[self.col2].sum(), 2))
 
 if __name__ == "__main__":
 
@@ -71,6 +96,12 @@ if __name__ == "__main__":
     #Calculamos la desviacion estandar de ataque y defensa
     std = Std("Pokemon.csv","Attack","Defense")
     print ("La desviacion estandar es: {}".format(std.calcular_std()))
+
+    #Calculamos los porcentajes
+    porcentaje = Porcentaje("Pokemon.csv","Attack","Defense")
+    #Bucle para calcular los 3 porcentajes
+    for i in range(1,4):
+        print ("{}º porcentaje: {}%".format(i, porcentaje.calcular_porcentaje(i)))
 
     #Hacemos el grafico de barras comparando ataque y defensa
     grafico = Grafico("Pokemon.csv","Attack","Defense")
